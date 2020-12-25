@@ -23,7 +23,7 @@ The version of terraform installed on your machine can be verified as below.
 ➜  ~ terraform version
 Terraform v0.14.2
 ```
-**Note**: The examples in this tutorial are run on the versions above _(latest while writing this tutorial)_.
+**Note**: The examples in this tutorial are run on the above version of terraform _(latest while writing this tutorial)_.
 
 #### AWS CLI
 AWS [Documentation](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html) here, explains the necessary 
@@ -34,7 +34,7 @@ steps to install AWS CLI tool. Post installation, you can verify using the versi
 aws-cli/2.1.1 Python/3.9.0 Darwin/19.0.0 source/x86_64
 ```
 
-The examples in this tutorial are run on the versions above _(latest while writing this tutorial)_. 
+The examples in this tutorial are run on the above version of AWS CLI _(latest while writing this tutorial)_. 
 You can also verify the current (root) user configured for CLI, by using the command below.
 ```
 ➜  aws configure list
@@ -58,4 +58,4 @@ this tutorial using this approach. At th end of the tutorial the credentials wil
 
 🏁 **Congrats !** You got your Terraform and AWS CLI Setup complete 🏁
 
-**Next**: [IAM Account For Tutorial](03-iam-account-setup.md)
+**Next**: [Terraform Overview](03-terraform-overview.md)
