@@ -18,19 +18,20 @@ A little background on understanding of serverless technologies, infrastructure 
 
 1. [Serverless Introduction](docs/01-serverless-introduction.md)
 2. [Prerequisites and Setup](docs/02-terraform-and-aws-cli-installation.md)
-3. IAM Account For Tutorial
-4. Hello World - Your First Lambda
-5. View Lambda Logs
-6. Packaging With Dependencies
-7. Lambda Layers
-8. Version Lambda
-9. Managing Lambda
-10. Integrate with S3
-11. Integrate with Kinesis
-12. Integrate with DynamoDB
-13. Integrate with SQS
-14. Integrate with APIGateway
-15. Tear down
+3. [Terraform Overview](docs/03-terraform-overview.md)
+4. [IAM Account For Tutorial](docs/04-iam-account-setup.md)
+5. [Hello World - Your First Lambda](docs/05-hello-world-your-first-lambda.md)
+6. View Lambda Logs
+7. Packaging With Dependencies
+8. Lambda Layers
+9. Version Lambda
+10. Managing Lambda
+11. Integrate with S3
+12. Integrate with Kinesis
+13. Integrate with DynamoDB
+14. Integrate with SQS
+15. Integrate with APIGateway
+16. Tear down
 
 **Let's Get Started**: [Serverless Introduction(docs/01-serverless-introduction.md)
 
