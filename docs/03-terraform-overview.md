@@ -18,7 +18,6 @@ provider "aws" {
   region = "ap-south-1"
 }
 ```
----
 ### Resource
 Resource forms the core of terraform code. They map to infrastructure objects corresponding to a specific provider.
 Following is a simple resource block that creates a S3 bucket. Here, the `lambda-tf-bucket` corresponds to a local
@@ -32,7 +31,6 @@ resource "aws_s3_bucket" "lambda-tf-bucket" {
   bucket = "lambda-tf-tutorial-bucket"
 }
 ```
----
 ### Input Variables
 Input variables are like variables in most of the general purpose programming languages. They can also be considered 
 as similar to function arguments. Following is a simple usage of a variables `aws_region` and `bucket_name`.
@@ -57,7 +55,6 @@ resource "aws_s3_bucket" "lambda-tf-bucket" {
 }
 
 ```
----
 
 ### Output Values
 Output values can be considered as function return values. When terraform script executes and creates a resource, the
@@ -108,7 +105,6 @@ terraform {
   }
 }
 ```
----
 ### Modules
 Modules are a very important part of terraform code. They help in re-usability of code. They are like functions
 that can be invoked with variables. The modules will substitute the values passed and create the resources.
@@ -153,8 +149,6 @@ output "second_bucket_arn" {
 
 Above are some of the keywords and concepts that are required for understanding this tutorial.
 
----
-
 ## Commands
 This section explains the important terraform commands that we will be using in this series.
 
@@ -167,9 +161,7 @@ script, initialization should be done.
 
 [Init Reference](https://www.terraform.io/docs/commands/init.html)
 
----
-
-####Validate
+#### Validate
 Validate command as its name implies, validated the script file. It does not make a remote call to the 
 resource provider (e.g, AWS or GoogleCloud) to validate. It does only a local validation. Its a good practice
 to check for syntactical errors before executing the scripts.
@@ -177,8 +169,6 @@ to check for syntactical errors before executing the scripts.
 *Usage* :  `terraform validate` 
 
 [Validate Reference](https://www.terraform.io/docs/commands/validate.html)
-
----
 
 #### Plan
 Terraform plan displays the resources that are to be created, modified or destroyed. Output of this command can be 
@@ -188,8 +178,6 @@ https://www.terraform.io/docs/commands/plan.html
 *Usage* :  `terraform plan` 
 
 [Plan Reference](https://www.terraform.io/docs/commands/plan.html)
-
----
 
 #### Apply
 Terraform apply is the command that performs the resource management in a provider i.e., creates, updates or deletes a
@@ -201,7 +189,6 @@ auto approving.
  
 [Apply Reference](https://www.terraform.io/docs/commands/apply.html)
 
----
 #### Output
 Terraform output will print the output values declared in the terraform script. It can also be invoked with a 
 specific output field.
@@ -209,8 +196,6 @@ specific output field.
 *Usage* :  `terraform output`
  
 [Output Reference](https://www.terraform.io/docs/commands/output.html)
-
----
 
 #### Destroy
 Terraform destroy command destroys the entire infra created. It also expects the user to supply the approval, if the
@@ -220,7 +205,6 @@ Terraform destroy command destroys the entire infra created. It also expects the
  
 [Output Reference](https://www.terraform.io/docs/commands/destroy.html)
 
- 
 🏁 **Congrats !** You completed the fastest introduction to Terraform 🏁
 
 **Next**: [IAM Account For Tutorial](04-iam-account-setup.md)
