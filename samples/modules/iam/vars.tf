@@ -1,2 +1,2 @@
-variable "iam_username" {
-}
+variable "iam_username" {}
+variable "pgp_key" {}

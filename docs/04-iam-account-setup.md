@@ -13,7 +13,7 @@ to that user id.
 Scripts for this section are available in [Chapter 04](../samples/04).
 
 #### (1) Main Script
-`main.tf` terraform script creates the IAM User. Lets understand `main.tf` line by line. 
+`main.tf` terraform script creates the IAM User. Let's understand `main.tf` line by line. 
 
 ```hcl-terraform
 provider "aws" {
@@ -54,6 +54,7 @@ the required policies to the IAM user.
 Now we will run terraform script to create the IAM user. You need to be in the `samples/04` folder to run the script. 
 
 ```shell script
+terraform init
 terraform apply --auto-approve  
 ```
 > Note:Once terraform completes, it should print the Access Key and Secret as below. 
@@ -65,10 +66,11 @@ module.lambda_tf_way_user_module.aws_iam_user.lambda_tf_way_iam_user: Creating..
 module.lambda_tf_way_user_module.aws_iam_user.lambda_tf_way_iam_user: Creation complete after 3s [id=lambda-tf-user]
 module.lambda_tf_way_user_module.aws_iam_access_key.lambda_tf_way_access_key: Creating...
 module.lambda_tf_way_user_module.aws_iam_policy_attachment.lambda_tf_way_lambda_policy: Creating...
+module.lambda_tf_way_user_module.aws_iam_policy_attachment.lambda_tf_way_iam_policy: Creating...
 module.lambda_tf_way_user_module.aws_iam_access_key.lambda_tf_way_access_key: Creation complete after 1s [id=ABCDEABCDEABCDEABCDEA]
 module.lambda_tf_way_user_module.aws_iam_policy_attachment.lambda_tf_way_lambda_policy: Creation complete after 4s [id=lambda-test-user-lambda-policy-attachment]
 
-Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
+Apply complete! Resources: 4 added, 0 changed, 0 destroyed.
 
 Outputs:
 
