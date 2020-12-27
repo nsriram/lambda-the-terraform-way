@@ -113,6 +113,6 @@ module.lambda_tf_way_role.aws_iam_role.lambda_tf_way_role: Destruction complete 
 Destroy complete! Resources: 3 destroyed.
 ```
 
-🏁 **Congrats !** You deployed your first Lambda with dependencies using Terraform and invoked it successfully. 🏁
+🏁 **Congrats !** You deployed your 'first Lambda with dependencies' using Terraform and invoked it successfully. 🏁
 
 **Next**: [Lambda Layers](07-lambda-layers.md)

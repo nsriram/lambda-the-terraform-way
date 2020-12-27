@@ -32,8 +32,8 @@ Note:
 Packaging the `helloWorldLambda.js` file is done using the `zip` command (on Mac). From the `samples/05` directory, 
 run the following to create a `.zip` file.
 
-```
-➜  zip -r /tmp/helloWorldLambda.zip helloWorldLambda.js
+```shell script
+zip -r /tmp/helloWorldLambda.zip helloWorldLambda.js
 ```
 
 #### (2) Main Script
