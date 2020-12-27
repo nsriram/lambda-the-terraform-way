@@ -22,7 +22,7 @@ A little background on understanding of serverless technologies, infrastructure 
 4. [IAM Account For Tutorial](docs/04-iam-account-setup.md)
 5. [Hello World - Your First Lambda](docs/05-hello-world-your-first-lambda.md)
 6. [Packaging With Dependencies](docs/06-packaging-lambda-with-dependencies.md)
-7. Lambda Layers
+7. [Lambda Layers](docs/07-lambda-layers.md)
 8. Version Lambda
 9. Managing Lambda
 10. Integrate with S3

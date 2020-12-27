@@ -220,6 +220,7 @@ resource "aws_iam_role" "lambda_tf_way_role" {
   assume_role_policy = file("${path.module}/lambda-assume-role-policy.json")
 }
 ```
+[file Reference](https://www.terraform.io/docs/configuration/functions/file.html)
 
 🏁 **Congrats !** You completed the fastest introduction to Terraform 🏁
 

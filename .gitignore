@@ -4,3 +4,6 @@
 terraform.tfstate
 terraform.tfstate.backup
 .terraform.lock.hcl
+node_modules
+package-lock.json
+outputfile.txt
