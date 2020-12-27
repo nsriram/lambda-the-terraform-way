@@ -11,7 +11,7 @@ locals {
   handler_name = "currentTimeLambda.handler"
 }
 
-module "lambda_tf_way_layer" {
+module "moment_js_lambda_layer" {
   source = "../modules/lambda-layer"
   lambda_layer_name = local.layer_name
   lambda_layer_payload = local.layer_payload
@@ -27,5 +27,5 @@ module "current_time_lambda" {
   lambda_function_handler = local.handler_name
   lambda_role_arn = module.lambda_tf_way_role.lambda_role_arn
   lambda_zip_filename = local.zip_file_name
-  lambda_tf_way_layer = module.lambda_tf_way_layer.lambda_tf_way_layer_arn_with_version
+  lambda_tf_way_layer = module.moment_js_lambda_layer.lambda_tf_way_layer_arn_with_version
 }

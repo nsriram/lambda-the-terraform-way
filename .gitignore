@@ -7,3 +7,4 @@ terraform.tfstate.backup
 node_modules
 package-lock.json
 outputfile.txt
+helloworld.txt

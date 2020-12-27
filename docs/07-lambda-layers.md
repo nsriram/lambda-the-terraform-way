@@ -60,7 +60,7 @@ the following command (or) the script `bundle-lambda.sh` in `samples/07/current-
 
 ```shell script
 #!/bin/sh
-zip -r /tmp/currentTimeLambda.zip currentTimeLambda.js
+zip /tmp/currentTimeLambda.zip currentTimeLambda.js
 ```
 
 #### (3) Terraform script for currentTimeLambda and momentJSLambdaLayer

@@ -116,15 +116,17 @@ module creates the lambda function in AWS. The lambda module exports the functio
 function ARN ([Amazon Resource Name](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)). 
 
 Following is the script you will find there.
-> Note: The runtime is configured as nodejs 
+- The runtime is configured as nodejs.
+- Layers are optional, and `lambda_tf_way_layer` var has an empty string as default.
 
 ```terraform
-resource "aws_lambda_function" "tf_way_lambda_function" {
+resource "aws_lambda_function" "lambda_tf_way_function" {
   filename = var.lambda_zip_filename
   function_name = var.lambda_function_name
   handler = var.lambda_function_handler
   role = var.lambda_role_arn
   runtime = "nodejs12.x"
+  layers = var.lambda_tf_way_layer == "" ? [] : [var.lambda_tf_way_layer]
 }
 ```
 

@@ -48,6 +48,13 @@ printed on the console.
 The IAM module is responsible for creating the IAM User, AccessKey & SecretKey pair. The module also associates 
 the required policies to the IAM user. 
 - `main.tf` file (in IAM module) contains the script for creating all these resources.
+- Three policies are attached with all privileges to the IAM user
+1.AWSLambda_FullAccess
+2.IAMFullAccess
+3.AmazonS3FullAccess
+
+>Note: It is a good practice to provide specific permissions instead of Full permissions. To keep it simple for 
+the tutorial we will grant full access.  
 
 - The module exports the `access_key` and `secret` via the `output.tf` file.
 
@@ -62,12 +69,13 @@ terraform apply --auto-approve
 The output on the console should look similar to the one below.
 Terraform apply will also create `.terraform` folder with tfstate files in `samples/04` directory.
 
-```
+```shell script
 module.lambda_tf_way_user_module.aws_iam_user.lambda_tf_way_iam_user: Creating...
 module.lambda_tf_way_user_module.aws_iam_user.lambda_tf_way_iam_user: Creation complete after 3s [id=lambda-tf-user]
 module.lambda_tf_way_user_module.aws_iam_access_key.lambda_tf_way_access_key: Creating...
 module.lambda_tf_way_user_module.aws_iam_policy_attachment.lambda_tf_way_lambda_policy: Creating...
 module.lambda_tf_way_user_module.aws_iam_policy_attachment.lambda_tf_way_iam_policy: Creating...
+module.lambda_tf_way_user_module.aws_iam_policy_attachment.lambda_tf_way_s3_policy: Creating...
 module.lambda_tf_way_user_module.aws_iam_access_key.lambda_tf_way_access_key: Creation complete after 1s [id=ABCDEABCDEABCDEABCDEA]
 module.lambda_tf_way_user_module.aws_iam_policy_attachment.lambda_tf_way_lambda_policy: Creation complete after 4s [id=lambda-test-user-lambda-policy-attachment]
 

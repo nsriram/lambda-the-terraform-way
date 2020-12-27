@@ -23,16 +23,14 @@ A little background on understanding of serverless technologies, infrastructure 
 5. [Hello World - Your First Lambda](docs/05-hello-world-your-first-lambda.md)
 6. [Packaging With Dependencies](docs/06-packaging-lambda-with-dependencies.md)
 7. [Lambda Layers](docs/07-lambda-layers.md)
-8. Version Lambda
-9. Managing Lambda
-10. Integrate with S3
-11. Integrate with Kinesis
-12. Integrate with DynamoDB
-13. Integrate with SQS
-14. Integrate with APIGateway
-15. Tear down
+8. [Integrate with S3](docs/08-integrate-with-s3.md)
+9. Integrate with Kinesis
+10. Integrate with DynamoDB
+11. Integrate with SQS
+12. Integrate with APIGateway
+13. Tear down
 
-**Let's Get Started**: [Serverless Introduction(docs/01-serverless-introduction.md)
+**Let's Get Started**: [Serverless Introduction](docs/01-serverless-introduction.md)
 
 ## References (external)
 - [Terraform](https://www.terraform.io/)

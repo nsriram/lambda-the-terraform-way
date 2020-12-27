@@ -1,0 +1,1 @@
+{"objectKey":"helloworld.txt","objectSize":29,"objectETag":"05d8304a09c852e59b9c641ebcbd660d","objectCreationTime":"2020-12-27T16:38:31.291Z"}

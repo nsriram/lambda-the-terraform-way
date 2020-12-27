@@ -19,7 +19,13 @@ resource "aws_iam_policy_attachment" "lambda_tf_way_lambda_policy" {
 }
 
 resource "aws_iam_policy_attachment" "lambda_tf_way_iam_policy" {
-  name = "lambda-test-user-lambda-policy-attachment"
+  name = "lambda-test-user-iam-policy-attachment"
   users = [aws_iam_user.lambda_tf_way_iam_user.name]
   policy_arn = "arn:aws:iam::aws:policy/IAMFullAccess"
+}
+
+resource "aws_iam_policy_attachment" "lambda_tf_way_s3_policy" {
+  name = "lambda-test-user-s3-policy-attachment"
+  users = [aws_iam_user.lambda_tf_way_iam_user.name]
+  policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
 }
