@@ -1,7 +1,7 @@
 # Hello World - Your First Lambda
 This section explains how to deploy and invoke a lambda function using Terraform. Examples here will use 
 NodeJS as the runtime. AWS Lambda supports other runtimes (Python, Ruby, Java, Go lang, .net) too. The document here
-[AWS Lambda Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) list them in detail.
+[AWS Lambda Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) lists them in detail.
 
 Terraform Scripts and lambda source code for this section are available in [Chapter 05](../samples/05).
 
@@ -26,7 +26,7 @@ exports.handler =  async (event) => {
 Note:
 - `handler` module should be exported by the lambda js file.
 - `handler` function is async and takes an `event` object.
-  `event` object contains the request data from the caller.
+- `event` object contains the request data from the caller.
 
 #### (1.2) Compress the lambda source file
 Packaging the `helloWorldLambda.js` file is done using the `zip` command (on Mac). From the `samples/05` directory, 
@@ -81,8 +81,8 @@ resource "aws_iam_role_policy" "tf_way_lambda_iam_role_policy" {
   Role [Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-role)
 - The name of the role created is `tf_way_lambda_role`
 
-###### tf_way_lambda_iam_role_policy
-- The resource `tf_way_lambda_iam_role_policy` assigns policies to the `tf_way_lambda_role`. Contents of the 
+###### lambda_tf_way_role_policy
+- The resource `lambda_tf_way_role_policy` assigns policies to the `tf_way_lambda_role`. Contents of the 
   `lambda-policy.json` file are assigned as policy to the role.
 - If you notice the `lambda-policy.json` file, it will allow access to the services S3, DynamoDB & SQS. For tutorial purpose 
   we will allow access to all the resources and actions. In general, the good practice is to assign specific resources
@@ -91,6 +91,9 @@ resource "aws_iam_role_policy" "tf_way_lambda_iam_role_policy" {
 ##### (2.2) Lambda
 The `main.tf` in `samples/05` creates `hello_world_lambda` by using the lambda module in `samples/modules/lambda`.
 Following is the script you will find in it.
+
+- Lambda name, zip file containing the archived source (from step 1.2 above), handler function are passed
+  as input variables.
 
 ```terraform
 locals {
@@ -107,9 +110,6 @@ module "hello_world_lambda" {
   lambda_zip_filename = local.zip_file_name
 }
 ```
-- Lambda name, zip file containing the archived source (from step 1.2 above), handler function are passed 
-  as input variables.
-
 ###### tf_way_lambda_function
 The `tf_way_lambda_function` resource is declared in the lambda module located at `samples/module/lambda`. This 
 module creates the lambda function in AWS. The lambda module exports the function name and 
@@ -140,18 +140,18 @@ terraform init
 terraform apply --auto-approve
 ```
 
-> Note:Once terraform apply completes, it should print the Lambda and Role details as output.
+> Note: Once terraform apply completes, it should print the Lambda and Role details as output.
 The output on the console should look similar to the one below.
 
 ```
 module.lambda_tf_way_role.aws_iam_role.lambda_tf_way_role: Creating...
-module.lambda_tf_way_role.aws_iam_role.lambda_tf_way_role: Creation complete after 3s [id=tf_way_lambda_role]
-module.lambda_tf_way_role.aws_iam_role_policy.tf_way_lambda_iam_role_policy: Creating...
-module.hello_world_lambda.aws_lambda_function.tf_way_lambda_function: Creating...
-module.lambda_tf_way_role.aws_iam_role_policy.tf_way_lambda_iam_role_policy: Creation complete after 2s [id=tf_way_lambda_role:tf_way_lambda_role_policy]
-module.hello_world_lambda.aws_lambda_function.tf_way_lambda_function: Still creating... [10s elapsed]
-module.hello_world_lambda.aws_lambda_function.tf_way_lambda_function: Still creating... [20s elapsed]
-module.hello_world_lambda.aws_lambda_function.tf_way_lambda_function: Creation complete after 22s [id=helloWorldLambda]
+module.lambda_tf_way_role.aws_iam_role.lambda_tf_way_role: Creation complete after 4s [id=tf_way_lambda_role]
+module.lambda_tf_way_role.aws_iam_role_policy.lambda_tf_way_role_policy: Creating...
+module.hello_world_lambda.aws_lambda_function.lambda_tf_way_function: Creating...
+module.lambda_tf_way_role.aws_iam_role_policy.lambda_tf_way_role_policy: Creation complete after 2s [id=tf_way_lambda_role:tf_way_lambda_role_policy]
+module.hello_world_lambda.aws_lambda_function.lambda_tf_way_function: Still creating... [10s elapsed]
+module.hello_world_lambda.aws_lambda_function.lambda_tf_way_function: Still creating... [20s elapsed]
+module.hello_world_lambda.aws_lambda_function.lambda_tf_way_function: Creation complete after 22s [id=helloWorldLambda]
 
 Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
 
@@ -165,7 +165,7 @@ lambda_role_arn = "arn:aws:iam::919191919191:role/tf_way_lambda_role"
 #### (4) Invoke the lambda
 Now, we will invoke the function deployed using AWS CLI.
 
-```shell
+```shell script
 aws lambda invoke --function-name helloWorldLambda \
     --log-type Tail \
     --payload '{}' \
@@ -185,7 +185,7 @@ You should see an output similar to the following after executing the lambda fun
 Now, we will delete the helloWorldLambda using terraform destroy. From the `samples/05/` folder run the 
 following command. This will delete the lambda. 
 
-```shell
+```shell script
 terraform destroy --auto-approve
 ```
 > Note: Once destroy completes, you should see a log similar to the one below.
@@ -200,6 +200,6 @@ module.lambda_tf_way_role.aws_iam_role.lambda_tf_way_role: Destruction complete 
 Destroy complete! Resources: 3 destroyed.
 ```
 
-🏁 **Congrats !** You deployed your first AWS Lambda function and invoked it successfully. 🏁
+🏁 **Congrats !** You deployed your first AWS Lambda function using Terraform and invoked it successfully. 🏁
 
 **Next**: [View Lambda Logs](06-packaging-lambda-with-dependencies.md)

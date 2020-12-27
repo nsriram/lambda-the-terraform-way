@@ -3,7 +3,7 @@
 ## AWS IAM Profile
 Creating individual IAM Users is an AWS best practice. Through IAM, permissions can be restricted to the 
 required AWS resources and actions for a particular user. For this tutorial series, we will 
-create a separate IAM User, `lambda-tf-user`.
+the IAM User `lambda-tf-user`.
 
 Following sections will walk through the steps required to create `lambda-tf-user` and assigning specific permissions 
 to that user id.
@@ -13,7 +13,7 @@ to that user id.
 Scripts for this section are available in [Chapter 04](../samples/04).
 
 #### (1) Main Script
-`main.tf` terraform script creates the IAM User. Let's understand `main.tf` line by line. 
+`main.tf` terraform script in `samples/04` creates the IAM User. Let's understand `main.tf` line by line. 
 
 ```terraform
 provider "aws" {
@@ -38,15 +38,16 @@ output "secret" {
 > Note: the region is declared as a variable in `vars.tf`. It is a good practice to declare variables in a separate file
 and output values in a separate file.
 - The module section uses the [IAM Module](../samples/modules/iam). Following section will detail the IAM module
-- Two output values are declared in `main.tf`. They are the user's access key and secret. These will be used for 
+##### Output Values
+- Two output values are declared in `output.tf`. They are the user's access key and secret. These will be used for 
 configuring the `~/.aws/credentials` for the tutorial purpose.
-> Note: When this script is run, the output values will be printed on the console, after the resources are successfully
-created. 
+> Note: When the `main.tf` script is run the resources will be created, and the output values will be 
+printed on the console.
 
 #### (2) IAM Module
 The IAM module is responsible for creating the IAM User, AccessKey & SecretKey pair. The module also associates 
 the required policies to the IAM user. 
-- `main.tf` file (in IAM module) contains
+- `main.tf` file (in IAM module) contains the script for creating all these resources.
 
 - The module exports the `access_key` and `secret` via the `output.tf` file.
 
@@ -57,7 +58,7 @@ Now we will run terraform script to create the IAM user. You need to be in the `
 terraform init
 terraform apply --auto-approve  
 ```
-> Note:Once terraform completes, it should print the Access Key and Secret as below. 
+> Note: Once terraform completes, it should print the Access Key and Secret as below. 
 The output on the console should look similar to the one below.
 Terraform apply will also create `.terraform` folder with tfstate files in `samples/04` directory.
 
@@ -114,6 +115,6 @@ You should see an output listing empty list of functions, or the ones your IAM u
 }
 ```
 
-🏁 **Congrats !** You got your AWS IAM User created and granted the user permissions to perform Lambda operations 🏁. 
+🏁 **Congrats !** You created your first AWS IAM User using terraform and granted permissions 🏁. 
 
 **Next**: [Hello World - Your First Lambda](05-hello-world-your-first-lambda.md)

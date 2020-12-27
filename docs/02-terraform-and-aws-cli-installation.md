@@ -13,13 +13,13 @@ On Mac, simple way to install terraform is by using Homebrew. The homebrew formu
 [Terraform Homebrew Formulae](https://formulae.brew.sh/formula/terraform)
 Following command should help in installing Terraform. 
 
-```
-➜  brew install terraform
+```shell script
+brew install terraform
 ```
 
 The version of terraform installed on your machine can be verified as below.
 
-```
+```shell script
 ➜  ~ terraform version
 Terraform v0.14.2
 ```
@@ -29,7 +29,7 @@ Terraform v0.14.2
 AWS [Documentation](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html) here, explains the necessary 
 steps to install AWS CLI tool. Post installation, you can verify using the version command. 
 
-```
+```shell script
 ➜  aws --version
 aws-cli/2.1.1 Python/3.9.0 Darwin/19.0.0 source/x86_64
 ```
