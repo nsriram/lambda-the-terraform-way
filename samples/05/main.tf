@@ -2,14 +2,14 @@ provider "aws" {
   region = var.aws_region
 }
 
+module "lambda_tf_way_role" {
+  source = "../modules/lambda-role"
+}
+
 locals {
   lambda_name = "helloWorldLambda"
   zip_file_name = "/tmp/helloWorldLambda.zip"
   handler_name = "helloWorldLambda.handler"
-}
-
-module "lambda_tf_way_role" {
-  source = "../modules/lambda-role"
 }
 
 module "hello_world_lambda" {

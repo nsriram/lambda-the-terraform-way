@@ -15,7 +15,7 @@ Scripts for this section are available in [Chapter 04](../samples/04).
 #### (1) Main Script
 `main.tf` terraform script creates the IAM User. Let's understand `main.tf` line by line. 
 
-```hcl-terraform
+```terraform
 provider "aws" {
   region = var.aws_region
 }

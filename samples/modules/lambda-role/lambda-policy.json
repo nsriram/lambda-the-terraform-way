@@ -15,12 +15,6 @@
     },
     {
       "Sid": "",
-      "Action": "lambda:*",
-      "Effect": "Allow",
-      "Resource": "*"
-    },
-    {
-      "Sid": "",
       "Action": "sqs:*",
       "Effect": "Allow",
       "Resource": "*"

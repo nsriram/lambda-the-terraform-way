@@ -1,6 +1,8 @@
 # Terraform Overview
 
-This section is a short detour to explain the basics of terraform. If you have already used terraform,
+This section is a short detour to explain the basics of terraform. We will cover a few Keywords, Commands and Functions. 
+
+> Note: If you have already used terraform,
 you may skip this section and move to [IAM Account For Tutorial](04-iam-account-setup.md).
 
 ## Keywords
@@ -200,10 +202,24 @@ specific output field.
 #### Destroy
 Terraform destroy command destroys the entire infra created. It also expects the user to supply the approval, if the
 `--auto-approve` is not passed.
+> Note: terraform destroy can be previewed using `terraform plan -destroy`
 
 *Usage* :  `terraform destroy`
  
 [Output Reference](https://www.terraform.io/docs/commands/destroy.html)
+
+## Functions
+
+### file
+The file function reads the contents of a file from the given path. For e.g., below terraform script assigns the content
+of the file `lambda-assume-role-policy.json` in the module path and assigns it to `assume_role_policy`.
+
+```terraform
+resource "aws_iam_role" "lambda_tf_way_role" {
+  name = "tf_way_lambda_role"
+  assume_role_policy = file("${path.module}/lambda-assume-role-policy.json")
+}
+```
 
 🏁 **Congrats !** You completed the fastest introduction to Terraform 🏁
 
