@@ -126,7 +126,7 @@ exports.handler = async (event, context, callback) => {
 ```
 
 ##### (2.2) AWS SDK Dependency
-Node module `aws-sdk` is not required explicitly on lambda instances. It is available in those by default.
+Node module `aws-sdk` is not required explicitly on lambda instances. It is available in the lambda environment by default.
 
 ##### (2.3) Bundle the source
 Let's bundle the lambda source using the following command (or) the script `bundle-lambda.sh` in `samples/08/`. Run these
@@ -262,6 +262,7 @@ Let's remove the s3 objects and perform terraform destroy. Following commands sh
 #!/bin/sh
 aws s3api delete-object --key helloworld.txt-metadata.txt --bucket lambda-tf-way-bucket-101 --profile "$AWS_PROFILE"
 aws s3api delete-object --key helloworld.txt --bucket lambda-tf-way-bucket-101 --profile "$AWS_PROFILE"
+export AWS_PROFILE=lambda-tf-user
 terraform destroy --auto-approve
 ```
 

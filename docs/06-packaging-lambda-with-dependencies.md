@@ -98,6 +98,7 @@ Now, we will delete the formatCurrencyLambda using terraform destroy, similar to
 From the `samples/06/` folder run the following command. 
 
 ```shell script
+export AWS_PROFILE=lambda-tf-user
 terraform destroy --auto-approve
 ```
 

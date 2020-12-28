@@ -158,6 +158,7 @@ Now, we will delete the currentTimeLambda and momentJSLambdaLayer, using terrafo
 From the `samples/07/` folder run the following command.
 
 ```shell script
+export AWS_PROFILE=lambda-tf-user
 terraform destroy --auto-approve
 ```
 

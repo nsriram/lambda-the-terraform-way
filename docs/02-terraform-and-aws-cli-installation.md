@@ -56,6 +56,11 @@ secret_key     ****************aBcd shared-credentials-file
 security reasons, if you are on a shared laptop or feel, the file can be accessed by others. But, we will proceed with 
 this tutorial using this approach. At th end of the tutorial the credentials will be removed. 
 
+### Samples
+> All the samples used in this series are available in `samples` folder.
+> Lambda language is NodeJS. ES6 is not used to avoid the extra steps pf babel and bundling node_modules.
+> Values like AWS Account ID etc., in the samples are masked
+
 🏁 **Congrats !** You got your Terraform and AWS CLI Setup complete 🏁
 
 **Next**: [Terraform Overview](03-terraform-overview.md)

@@ -54,11 +54,11 @@ module "kinesis_lambda_event_stream_mapping" {
   lambda_tf_way_kinesis_stream_arn = module.lambda_tf_way_kinesis_stream.lambda_tf_way_kinesis_stream_arn
 }
 ```
-
 ##### kinesis-lambda-event-mapping module
-`kinesis-lambda-event-mapping` module (`samples/modules`) enables the `kinesisEventLoggerLambda` to listen to events 
-from `lambda-tf-stream`. The resource `lambda_tf_way_kinesis_event_source_mapping` in the module's `main.tf`
-maps the event source ARN of the kinesis stream to the ARN of lambda. 
+- `samples/modules/kinesis-lambda-event-mapping` module enables the `kinesisEventLoggerLambda` to listen to events 
+  from `lambda-tf-stream`. 
+- The resource `lambda_tf_way_kinesis_event_source_mapping` in the module's `main.tf` maps the event source ARN 
+  of the kinesis stream to the ARN of lambda. 
 
 #### (2) Bundle the lambda
 This section will refer to the source `samples/09/kinesisEventLoggerLambda.js` _(below)_.
@@ -102,7 +102,7 @@ exports.handler = async (event) => {
 };
 ```
 ##### (2.3) AWS SDK Dependency
-Node module `aws-sdk` is not required explicitly on lambda instances. It is available in those by default.
+Node module `aws-sdk` is not required explicitly on lambda instances. It is available in the lambda environment by default.
 
 ##### (2.4) Bundle the source
 Let's bundle the lambda source using the following command (or) the script `bundle-lambda.sh` in `samples/09/`. 
@@ -155,7 +155,7 @@ lambda_tf_way_kinesis_stream_id = "arn:aws:kinesis:ap-south-1:919191919191:strea
 #### (4) Verify kinesis event processing
 
 Let's publish an event in the `lambda-tf-stream`. The event will be processed by `kinesisEventLoggerLambda` and 
-we can check it in CloudWatch logs.
+we can check it in CloudWatch logs. These commands have to be run from the `samples/09` folder. 
 
 ##### (4.1) Publish event
 We will publish the event with a message (data) using AWS CLI.
@@ -213,7 +213,7 @@ aws logs get-log-events \
   --log-stream-name "2020/12/28/[\$LATEST]76578ac49cda4fe7880a1736caf4647c"
 ```
 
-You should see the message (Hello World) in the logs.
+You should see a message (Hello World) in the log events, similar to the one below.
 
 ```json
 {
@@ -227,6 +227,7 @@ You should see the message (Hello World) in the logs.
 Let's run terraform destroy to delete the infra we created in this tutorial.
 
 ```shell script
+export AWS_PROFILE=lambda-tf-user
 terraform destroy --auto-approve
 ```
 
