@@ -41,3 +41,9 @@ resource "aws_iam_policy_attachment" "lambda_tf_way_dynamodb_policy" {
   users = [aws_iam_user.lambda_tf_way_iam_user.name]
   policy_arn = "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
 }
+
+resource "aws_iam_policy_attachment" "lambda_tf_way_sqs_policy" {
+  name = "lambda-test-user-sqs-policy-attachment"
+  users = [aws_iam_user.lambda_tf_way_iam_user.name]
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSQSFullAccess"
+}

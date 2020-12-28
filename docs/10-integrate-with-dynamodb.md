@@ -252,6 +252,6 @@ export AWS_PROFILE=lambda-tf-user
 terraform destroy --auto-approve
 ```
 
-🏁 **Congrats !** You learnt a key integration in serverless - AWS Lambda and Kinesis 🏁
+🏁 **Congrats !** You learnt a key integration in serverless - AWS Lambda and DynamoDB 🏁
 
 **Next**: [Integrate with SQS](11-integrate-with-sqs.md) 
