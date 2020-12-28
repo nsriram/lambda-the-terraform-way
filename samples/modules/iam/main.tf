@@ -29,3 +29,9 @@ resource "aws_iam_policy_attachment" "lambda_tf_way_s3_policy" {
   users = [aws_iam_user.lambda_tf_way_iam_user.name]
   policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
 }
+
+resource "aws_iam_policy_attachment" "lambda_tf_way_kinesis_policy" {
+  name = "lambda-test-user-kinesis-policy-attachment"
+  users = [aws_iam_user.lambda_tf_way_iam_user.name]
+  policy_arn = "arn:aws:iam::aws:policy/AmazonKinesisFullAccess"
+}

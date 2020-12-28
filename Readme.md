@@ -24,8 +24,8 @@ A little background on understanding of serverless technologies, infrastructure 
 6. [Packaging With Dependencies](docs/06-packaging-lambda-with-dependencies.md)
 7. [Lambda Layers](docs/07-lambda-layers.md)
 8. [Integrate with S3](docs/08-integrate-with-s3.md)
-9. Integrate with Kinesis
-10. Integrate with DynamoDB
+9. [Integrate with Kinesis](docs/09-integrate-with-kinesis.md)
+10. [Integrate with DynamoDB](docs/10-integrate-with-dynamodb.md)
 11. Integrate with SQS
 12. Integrate with APIGateway
 13. Tear down

@@ -1,0 +1,1 @@
+variable "lambda_tf_way_kinesis_stream_name" {}

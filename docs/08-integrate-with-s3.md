@@ -28,12 +28,11 @@ The lambda function for this example
 - The metadata file will contain information about the source object (that was uploaded).   
 
 #### (1) Terraform 
-`main.tf` script in `samples/08/` folder contains terraform for the following
-- S3 bucket creation (S3 module in folder `module/s3`)
-- Lambda creation. This lambda listens to s3 object create events (S3 module in folder `module/lambda`)
-- Event source mapping between the S3 bucket and lambda (S3 module in folder `module/s3-lambda-event-mapping`)
+`main.tf` script in `samples/08/` folder does the following
+- Creates S3 bucket `lambda-tf-way-bucket-101` (S3 module in folder `module/s3`)
+- Creates lambda `s3ObjectListenerLambda` that listens to s3 object create events (using lambda module in folder `module/lambda`)
+- Event source mapping between the S3 bucket and lambda (using module `sample/modules/kinesis-lambda-event-mapping`)
 
-Following is the `main.tf` script in `samples/08` folder that does the above.
 > Note: One of the constraints of S3 is, bucket names have to be universally unique. 
 Hence, giving a universally unique name to the bucket is important. You can change the bucket name from
 `lambda-tf-way-bucket-101` to any other name.
