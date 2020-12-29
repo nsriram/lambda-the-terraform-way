@@ -1,7 +1,8 @@
 # Prerequisites and Setup
 
 ### AWS Account
-Examples used in this tutorial will be run on MacOS. We will need AWS Account, AWS CLI and Terraform to be installed.
+Examples used in this tutorial will be run on MacOS. We will need AWS Account, AWS CLI, Terraform and Keybase app 
+to be installed.
 
 You can sign-up for a new AWS account if you don't have one here [Sign-up AWS](https://portal.aws.amazon.com/billing/signup#/start). 
 AWS lambda offers free tier up to 1 million requests per month. This is applicable for both existing and new customers.
@@ -60,6 +61,13 @@ this tutorial using this approach. At th end of the tutorial the credentials wil
 > All the samples used in this series are available in `samples` folder.
 > Lambda language is NodeJS. ES6 is not used to avoid the extra steps pf babel and bundling node_modules.
 > Values like AWS Account ID etc., in the samples are masked
+
+### Keybase App
+
+We will use Keybase app as the pgp provider. This will be used by terraform to the AWS (web) console password. 
+If you do not have one installed, you can install using the steps provided here.
+
+[Install Keybase on MacOS](https://keybase.io/docs/the_app/install_macos)
 
 🏁 **Congrats !** You got your Terraform and AWS CLI Setup complete 🏁
 

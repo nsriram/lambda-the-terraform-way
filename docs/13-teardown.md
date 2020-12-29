@@ -5,10 +5,10 @@ been deleting all the resources created in those _(e.g., lambdas, s3 assets, kin
 
 ### Delete IAM Account Setup
 At this point only the resources created in `samples/04` are left. 
-Let's delete them from `samples/04`.
+Let's delete them from `samples/04` and your AWS_PROFILE should be the admin user profile.
 
 ```shell script
-export AWS_PROFILE=lambda-tf-user
+export AWS_PROFILE=<aws_admin_user_profile>
 terraform destroy --auto-approve
 ```
 
