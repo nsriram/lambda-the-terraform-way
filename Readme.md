@@ -27,7 +27,7 @@ A little background on understanding of serverless technologies, infrastructure 
 9. [Integrate with Kinesis](docs/09-integrate-with-kinesis.md)
 10. [Integrate with DynamoDB](docs/10-integrate-with-dynamodb.md)
 11. [Integrate with SQS](docs/11-integrate-with-sqs.md)
-12. Integrate with APIGateway
+12. [Integrate with APIGateway](docs/12-integrate-with-api-gateway.md)
 13. Tear down
 
 **Let's Get Started**: [Serverless Introduction](docs/01-serverless-introduction.md)

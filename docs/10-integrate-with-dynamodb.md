@@ -184,8 +184,8 @@ lambda_tf_way_order_table_arn = "arn:aws:dynamodb:ap-south-1:919191919191:table/
 
 #### (4) Verify DynamoDB event processing
 
-We will trigger `dynamoDBEventLoggerLambda` by putting an item in the `Orders` table. This will send a dynamodb event 
-to the lambda via the dynamodb stream. These commands have to be run from the `samples/10` folder (or) you can use the 
+We will trigger `dynamoDBEventLoggerLambda` by putting an item in the `Orders` table. This will result in an event
+via the DynamoDB stream to the lambda. These commands have to be run from the `samples/10` folder (or) you can use the 
 `put-item.sh`.
 
 ##### (4.1) Put Item
@@ -195,10 +195,10 @@ aws dynamodb put-item --table-name Orders \
   --item file://newOrder.json \
   --profile "$AWS_PROFILE"
 ```
+
 ##### (4.2) View Log for dynamoDBEventLoggerLambda
 We will use AWS CLI and view the logs on AWS Cloud watch to confirm the event processing. For this we need the
 LogGroup and LogStream. The latest `LOG_STREAM_NAME` will have the execution details.
-> Note: The LOG_STREAM_NAME has `$` symbol and needs to be escaped with backslash.
 
 Fetch the log stream name from the log group. Cloudwatch would have created a log group with name
 `/aws/lambda/dynamoDBEventLoggerLambda`. Using that we will get the log stream.
@@ -228,6 +228,8 @@ aws logs describe-log-streams --log-group-name "/aws/lambda/dynamoDBEventLoggerL
 
 Now, we will use the log stream `"2020/12/28/[$LATEST]0689d153521e462f8b2ea5b7be5fdd4a"` to see the logs of the lambda
 execution.
+
+> Note: The LOG_STREAM_NAME has `$` symbol and needs to be escaped with backslash.
 
 ```shell script
 aws logs get-log-events \
