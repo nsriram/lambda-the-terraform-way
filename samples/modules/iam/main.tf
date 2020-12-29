@@ -47,3 +47,9 @@ resource "aws_iam_policy_attachment" "lambda_tf_way_sqs_policy" {
   users = [aws_iam_user.lambda_tf_way_iam_user.name]
   policy_arn = "arn:aws:iam::aws:policy/AmazonSQSFullAccess"
 }
+
+resource "aws_iam_policy_attachment" "lambda_tf_way_api_gateway_policy" {
+  name = "lambda-test-user-api-gateway-policy-attachment"
+  users = [aws_iam_user.lambda_tf_way_iam_user.name]
+  policy_arn = "arn:aws:iam::aws:policy/AmazonAPIGatewayAdministrator"
+}

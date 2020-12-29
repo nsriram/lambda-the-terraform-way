@@ -11,10 +11,7 @@ SQS is based on topics and doesn't require a message broker to be configured. SQ
 2. FIFO Queue (maintains the order)
 
 Producers can send messages to an SQS queue. These messages are distributed across SQS servers for redundancy. Messages
-can be configured for a certain timeout.
-
-SQS can be configured to trigger Lambda functions, similar to Kinesis & DynamoDB.
-
+can be configured for a certain timeout. SQS can be configured to trigger Lambda functions, similar to Kinesis & DynamoDB.
 Key benefits of using SQS are
 - Security
 - Durability

@@ -224,4 +224,17 @@ resource "aws_iam_role" "lambda_tf_way_role" {
 
 🏁 **Congrats !** You completed the fastest introduction to Terraform 🏁
 
+## Env Variables
+
+### TF_LOG
+Logs can be enabled for terraform execution via the `TF_LOG` environment variables. The following terraform init
+will print debug information while initializing the folder.
+
+`TRACE , DEBUG , INFO , WARN or ERROR` are the possible options for `TF_LOG`.
+
+``` shell
+export TF_LOG=DEBUG
+terraform init
+```
+
 **Next**: [IAM Account For Tutorial](04-iam-account-setup.md)
