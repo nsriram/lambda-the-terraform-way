@@ -15,7 +15,7 @@ The first-class integration provision for to their other service offerings _(e.g
 help serverless approaches address larger architectural concerns seamlessly. 
 Apart from these mainstream cloud solution providers there are options to host serverless on premise or on your kubernetes clusters.  
 Apache OpenWhisk is an open source serverless hosting option.  If you want to run serverless on your kubernetes cluster, 
-there are options like KNative and Kubeless. Frameworks like serverless.com have made building, bundling serverless apps 
+there are options like KNative, Kubeless and OpenFaaS. Frameworks like serverless.com have made building, bundling serverless apps 
 simpler. They also provide monitoring options.
 
 ### AWS Lambda
