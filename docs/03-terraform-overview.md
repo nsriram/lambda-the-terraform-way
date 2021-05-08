@@ -49,7 +49,7 @@ provider "aws" {
 }
 
 variable "bucket_name" {
-  default = "ap-south-1"
+  default = "lambda-tf-tutorial-bucket"
 }
 
 resource "aws_s3_bucket" "lambda-tf-bucket" {
@@ -66,7 +66,7 @@ resource attributes can be mapped to output values. For example, the ARN for the
 
 ```hcl-terraform
 variable "bucket_name" {
-  default = "ap-south-1"
+  default = "lambda-tf-tutorial-bucket"
 }
 
 resource "aws_s3_bucket" "lambda-tf-bucket" {
@@ -92,9 +92,9 @@ This helps in a team from overriding the state during concurrent execution. For 
 to support remote backend with locking. Following is an example for remote state declaration using S3 & DynamoDB 
 using the keyword `terraform`.
 
-> Note: This tutorial series will not use Remote backend.  
+[Remote State Reference](https://www.terraform.io/docs/state/remote.html)
 
->[Remote State Reference](https://www.terraform.io/docs/state/remote.html)
+> Note: This tutorial series will not use Remote backend.  
 
 ```hcl-terraform
 terraform {
@@ -175,7 +175,6 @@ to check for syntactical errors before executing the scripts.
 #### Plan
 Terraform plan displays the resources that are to be created, modified or destroyed. Output of this command can be 
 matched against the intended plan. Its a good practice to check the plan of the scripts to be executed.  
-https://www.terraform.io/docs/commands/plan.html
 
 *Usage* :  `terraform plan` 
 
@@ -187,7 +186,7 @@ resource. Apply when executed, lists the resources that will be managed and expe
 to approve. Apply can also be performed with `--auto-approve`, but is recommended that the plan is checked before 
 auto approving.  
 
-*Usage* :  `terraform apply --auto-approve`
+*Usage* :  `terraform apply`
  
 [Apply Reference](https://www.terraform.io/docs/commands/apply.html)
 
